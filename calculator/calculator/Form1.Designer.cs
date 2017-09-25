@@ -1,6 +1,6 @@
 ﻿namespace calculator
 {
-    partial class v
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -84,7 +84,6 @@
             this.btn1.TabIndex = 2;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.NhapSo);
             // 
             // btn2
             // 
