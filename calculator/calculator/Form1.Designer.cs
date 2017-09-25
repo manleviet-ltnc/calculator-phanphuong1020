@@ -84,6 +84,7 @@
             this.btn1.TabIndex = 2;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.NhapSo);
             // 
             // btn2
             // 
@@ -182,6 +183,7 @@
             this.btnDoiDau.TabIndex = 11;
             this.btnDoiDau.Text = "-/+";
             this.btnDoiDau.UseVisualStyleBackColor = true;
+            this.btnDoiDau.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnCong
             // 
@@ -192,6 +194,7 @@
             this.btnCong.TabIndex = 12;
             this.btnCong.Text = "+";
             this.btnCong.UseVisualStyleBackColor = true;
+            this.btnCong.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnTru
             // 
@@ -202,6 +205,7 @@
             this.btnTru.TabIndex = 13;
             this.btnTru.Text = "-";
             this.btnTru.UseVisualStyleBackColor = true;
+            this.btnTru.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnChia
             // 
@@ -212,6 +216,7 @@
             this.btnChia.TabIndex = 14;
             this.btnChia.Text = "/";
             this.btnChia.UseVisualStyleBackColor = true;
+            this.btnChia.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnNhan
             // 
@@ -222,6 +227,7 @@
             this.btnNhan.TabIndex = 15;
             this.btnNhan.Text = "*";
             this.btnNhan.UseVisualStyleBackColor = true;
+            this.btnNhan.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnThapPhan
             // 
@@ -242,6 +248,7 @@
             this.btnPhanTram.TabIndex = 17;
             this.btnPhanTram.Text = "%";
             this.btnPhanTram.UseVisualStyleBackColor = true;
+            this.btnPhanTram.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnCan
             // 
@@ -252,6 +259,7 @@
             this.btnCan.TabIndex = 18;
             this.btnCan.Text = "√";
             this.btnCan.UseVisualStyleBackColor = true;
+            this.btnCan.Click += new System.EventHandler(this.NhapPhepToan);
             // 
             // btnBang
             // 
@@ -262,6 +270,7 @@
             this.btnBang.TabIndex = 19;
             this.btnBang.Text = "=";
             this.btnBang.UseVisualStyleBackColor = true;
+            this.btnBang.Click += new System.EventHandler(this.btnBang_Click);
             // 
             // btnNho
             // 
@@ -283,7 +292,7 @@
             this.btnXoa.Text = "Backspace";
             this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // v
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,7 +321,7 @@
             this.Controls.Add(this.lblDisplay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "v";
+            this.Name = "frmMain";
             this.Text = "Calculator";
             this.ResumeLayout(false);
 
