@@ -48,7 +48,7 @@
             this.btnPhanTram = new System.Windows.Forms.Button();
             this.btnCan = new System.Windows.Forms.Button();
             this.btnBang = new System.Windows.Forms.Button();
-            this.btnNho = new System.Windows.Forms.Button();
+            this.btnXoaHet = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -248,7 +248,7 @@
             this.btnPhanTram.TabIndex = 17;
             this.btnPhanTram.Text = "%";
             this.btnPhanTram.UseVisualStyleBackColor = true;
-            this.btnPhanTram.Click += new System.EventHandler(this.NhapPhepToan);
+            this.btnPhanTram.Click += new System.EventHandler(this.btnPhanTram_Click);
             // 
             // btnCan
             // 
@@ -259,7 +259,7 @@
             this.btnCan.TabIndex = 18;
             this.btnCan.Text = "√";
             this.btnCan.UseVisualStyleBackColor = true;
-            this.btnCan.Click += new System.EventHandler(this.NhapPhepToan);
+            this.btnCan.Click += new System.EventHandler(this.btnCan_Click);
             // 
             // btnBang
             // 
@@ -272,15 +272,16 @@
             this.btnBang.UseVisualStyleBackColor = true;
             this.btnBang.Click += new System.EventHandler(this.btnBang_Click);
             // 
-            // btnNho
+            // btnXoaHet
             // 
-            this.btnNho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNho.Location = new System.Drawing.Point(9, 89);
-            this.btnNho.Name = "btnNho";
-            this.btnNho.Size = new System.Drawing.Size(102, 40);
-            this.btnNho.TabIndex = 20;
-            this.btnNho.Text = "C";
-            this.btnNho.UseVisualStyleBackColor = true;
+            this.btnXoaHet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoaHet.Location = new System.Drawing.Point(9, 89);
+            this.btnXoaHet.Name = "btnXoaHet";
+            this.btnXoaHet.Size = new System.Drawing.Size(102, 40);
+            this.btnXoaHet.TabIndex = 20;
+            this.btnXoaHet.Text = "C";
+            this.btnXoaHet.UseVisualStyleBackColor = true;
+            this.btnXoaHet.Click += new System.EventHandler(this.btnXoaHet_Click);
             // 
             // btnXoa
             // 
@@ -291,6 +292,7 @@
             this.btnXoa.TabIndex = 21;
             this.btnXoa.Text = "Backspace";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmMain
             // 
@@ -298,7 +300,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 401);
             this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnNho);
+            this.Controls.Add(this.btnXoaHet);
             this.Controls.Add(this.btnBang);
             this.Controls.Add(this.btnCan);
             this.Controls.Add(this.btnPhanTram);
@@ -324,7 +326,6 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.frmMain_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMain_KeyPress);
             this.ResumeLayout(false);
 
@@ -352,7 +353,7 @@
         private System.Windows.Forms.Button btnPhanTram;
         private System.Windows.Forms.Button btnCan;
         private System.Windows.Forms.Button btnBang;
-        private System.Windows.Forms.Button btnNho;
+        private System.Windows.Forms.Button btnXoaHet;
         private System.Windows.Forms.Button btnXoa;
     }
 }

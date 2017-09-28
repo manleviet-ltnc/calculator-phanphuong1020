@@ -18,7 +18,7 @@ namespace calculator
         }
 
         bool isTypingNumber = false;
-        enum PhepToan { Cong, Tru, Nhan, Chia };
+        enum PhepToan { None, Cong, Tru, Nhan, Chia };
         PhepToan pheptoan;
         private void NhapSo(object sender, EventArgs e)
         {
@@ -41,7 +41,8 @@ namespace calculator
 
         private void NhapPhepToan(object sender, EventArgs e)
         {
-            TinhKetQua();
+            if (nho!=0)
+                TinhKetQua();
             Button bnt = (Button)sender;
             switch (bnt.Text)
             {
@@ -78,6 +79,9 @@ namespace calculator
         {
             TinhKetQua();
             isTypingNumber = false;
+            nho = 0;
+            pheptoan = PhepToan.None;
+
         }
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
@@ -96,12 +100,51 @@ namespace calculator
                 case '9':
                     NhapSo("" + e.KeyChar);
                     break;
+                case '+':
+                    btnCong.PerformClick(); break;
+                case '-':
+                    btnTru.PerformClick(); break;
+                case '*':
+                    btnNhan.PerformClick(); break;
+                case '/':
+                    btnChia.PerformClick(); break;
             }
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
+            private void btnCan_Click(object sender, EventArgs e)
+            {
+                double Can = double.Parse(lblDisplay.Text);
+                lblDisplay.Text = Math.Sqrt(Can).ToString();
 
-        }
+            }
+
+            private void btnPhanTram_Click(object sender, EventArgs e)
+            {
+                lblDisplay.Text = (double.Parse(lblDisplay.Text) / 100).ToString();
+            }
+
+            private void btnDoiDau_Click(object sender, EventArgs e)
+            {
+                lblDisplay.Text = (-1 * double.Parse(lblDisplay.Text)).ToString();
+            }
+
+            private void btnXoa_Click(object sender, EventArgs e)
+            {
+                if (lblDisplay.Text != "")
+                    lblDisplay.Text = (lblDisplay.Text).Substring(0, lblDisplay.Text.Length - 1);
+            }
+
+            private void btnNho_Click(object sender, EventArgs e)
+            {
+
+                nho = 0;
+                lblDisplay.ResetText();
+            }
+        private void btnXoaHet_Click(object sender, EventArgs e)
+            {
+            nho = 0;
+            lblDisplay.Text = "0.";
+
+             }
     }
 }
