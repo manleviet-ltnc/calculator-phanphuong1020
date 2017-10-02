@@ -18,30 +18,34 @@ namespace calculator
         }
 
         bool isTypingNumber = false;
-        enum PhepToan { None, Cong, Tru, Nhan, Chia };
-        PhepToan pheptoan;
         private void NhapSo(object sender, EventArgs e)
         {
-            Button bnt = ((Button)sender);
-            NhapSo(bnt.Text);
+            Button btn = (Button)sender;
+            NhapSo(btn.Text);
         }
+
         private void NhapSo(string so)
         {
             if (isTypingNumber)
-                lblDisplay.Text = lblDisplay.Text + so;
+            {
+                // Xoá số 0 ở đầu số
+                if (lblDisplay.Text == "0")
+                    lblDisplay.Text = "";
+
+                lblDisplay.Text += so;
+            }
             else
             {
                 lblDisplay.Text = so;
                 isTypingNumber = true;
             }
         }
-
+        enum PhepToan { None, Cong, Tru, Nhan, Chia };
+        PhepToan pheptoan;
         double nho;
-        bool pressed = false;
-
         private void NhapPhepToan(object sender, EventArgs e)
         {
-            if (nho!=0)
+            if (nho != 0)
                 TinhKetQua();
             Button bnt = (Button)sender;
             switch (bnt.Text)
@@ -111,40 +115,58 @@ namespace calculator
             }
         }
 
-            private void btnCan_Click(object sender, EventArgs e)
-            {
-                double Can = double.Parse(lblDisplay.Text);
-                lblDisplay.Text = Math.Sqrt(Can).ToString();
+        private void btnCan_Click(object sender, EventArgs e)
+        {
+            double Can = double.Parse(lblDisplay.Text);
+            lblDisplay.Text = Math.Sqrt(Can).ToString();
 
-            }
+        }
 
-            private void btnPhanTram_Click(object sender, EventArgs e)
-            {
-                lblDisplay.Text = (double.Parse(lblDisplay.Text) / 100).ToString();
-            }
+        private void btnPhanTram_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = (double.Parse(lblDisplay.Text) / 100).ToString();
+        }
 
-            private void btnDoiDau_Click(object sender, EventArgs e)
-            {
-                lblDisplay.Text = (-1 * double.Parse(lblDisplay.Text)).ToString();
-            }
+        private void btnDoiDau_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = (-1 * double.Parse(lblDisplay.Text)).ToString();
+        }
 
-            private void btnXoa_Click(object sender, EventArgs e)
-            {
-                if (lblDisplay.Text != "")
-                    lblDisplay.Text = (lblDisplay.Text).Substring(0, lblDisplay.Text.Length - 1);
-            }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text != "")
+                lblDisplay.Text = (lblDisplay.Text).Substring(0, lblDisplay.Text.Length - 1);
+            if (lblDisplay.Text == "")
+                lblDisplay.Text = "0";
+        }
 
-            private void btnNho_Click(object sender, EventArgs e)
-            {
+        private void btnNho_Click(object sender, EventArgs e)
+        {
 
-                nho = 0;
-                lblDisplay.ResetText();
-            }
-        private void btnXoaHet_Click(object sender, EventArgs e)
-            {
             nho = 0;
-            lblDisplay.Text = "0.";
+            lblDisplay.ResetText();
+        }
+        private void btnXoaHet_Click(object sender, EventArgs e)
+        {
+            nho = 0;
+            lblDisplay.Text = "0";
 
-             }
-    }
+        }
+        private void btnThapPhan_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem đã tồn tại dấu chấm trong lblDisplay.Text hay chưa
+            if (lblDisplay.Text.Contains("."))
+            {
+                if (lblDisplay.Text == "0.")
+                {
+                    lblDisplay.Text = "";
+                    NhapSo("0.");
+                }
+                return;
+            }
+
+            lblDisplay.Text += ".";
+
+        }
+    }  
 }
